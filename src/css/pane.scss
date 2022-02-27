@@ -1,0 +1,34 @@
+$pane-margin: 30px;
+$pane-left-width: 367px;
+
+.pane {
+	z-index: 1010;
+	transition: transform 0.3s;
+
+	@media (min-width: 1024px) {
+		border-radius: 10px;
+		overflow: hidden;
+		margin: $pane-margin;
+		position: absolute;
+		height: calc(100% - (#{$pane-margin} * 2)) !important;
+
+		&.pane-desktop-left {
+			width: $pane-left-width !important;
+		}
+
+		&.pane-desktop-right {
+			left: $pane-left-width + $pane-margin;
+			width: calc(100% - #{$pane-left-width} - (#{$pane-margin} * 3)) !important;
+		}
+
+		&.pane-desktop-full-width {
+			width: calc(100% - (#{$pane-margin} * 2)) !important;
+		}
+	}
+
+	&.mobile-offscreen {
+		@media (max-width: 1023px) {
+			transform: translateX(100%);
+		}
+	}
+}
