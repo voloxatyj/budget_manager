@@ -6,12 +6,13 @@
   "author": "voloxatyj <ostapmedunskij@gmail.com>",
   "private": true,
   "scripts": {
-    "dev": "quasar dev", 
+    "dev": "quasar dev",
     "test": "echo \"No test specified\" && exit 0"
   },
   "dependencies": {
     "@quasar/extras": "^1.0.0",
     "core-js": "^3.6.5",
+    "moment": "^2.29.1",
     "quasar": "^2.0.0",
     "vue": "^3.0.0",
     "vue-i18n": "^9.0.0",
