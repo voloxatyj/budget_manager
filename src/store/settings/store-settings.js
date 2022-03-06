@@ -98,7 +98,11 @@ const state = reactive({
             },
             {
               label: 'Large',
-              value: '21px'
+              value: '19px'
+            },
+            {
+              label: 'Extr Large',
+              value: '24px'
             }
           ]
         }

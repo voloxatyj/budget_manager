@@ -23,23 +23,41 @@
       show-if-above
       bordered
     >
-      <q-list>
-        <EssentialLink
-          v-for="link in navLinks"
-          :key="link.title"
-          v-bind="link"
-        />
+      <q-list 
+        v-for="navLink in navLinks"
+        :key="navLink.title"
+        v-bind="link"
+      >
+        <q-item
+          class="text-marginal-btn text-size-16"
+          active-class="text-marginal-btn-active"
+          clickable
+          exact
+        >
+
+          <q-item-section
+            v-if="navLink.icon"
+            avatar
+          >
+            <q-icon :name="navLink.icon" size="26px" />
+          </q-item-section>
+
+          <q-item-label>{{ $t(navLink.title) }}</q-item-label>
+        </q-item>
       </q-list>
     </q-drawer>
 
     <q-page-container>
-      <router-view />
+      <router-view v-slot="{Component}">
+        <keep-alive>
+          <component :is="Component" />
+        </keep-alive>
+      </router-view>
     </q-page-container>
   </q-layout>
 </template>
 
 <script>
-import EssentialLink from '../components/EssentialLink';
 import { ref } from 'vue'
 
 export default {
