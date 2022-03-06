@@ -1,8 +1,8 @@
 {
-  "name": "budget_manager",
+  "name": "qbudget_manager",
   "version": "0.0.1",
-  "description": "A Quasar Framework app",
-  "productName": "Quasar App",
+  "description": "App with help your to control your budget basic in Quasar Framework",
+  "productName": "QBudget App",
   "author": "voloxatyj <ostapmedunskij@gmail.com>",
   "private": true,
   "scripts": {

@@ -18,6 +18,7 @@
 		<settings-footer />
 	</pane>
 	<settings-sections-mobile v-if="$q.screen.lt.md" />
+	<ask-a-question />
 </template>
 
 <script>
@@ -35,6 +36,13 @@ export default {
 		return {
 			store
 		}
+	},
+	components: {
+		'settings-menu': require('components/Settings/SettingsMenu.vue').default,
+		'settings-sections-desktop': require('components/Settings/SettingsSectionsDesktop.vue').default,
+		'settings-sections-mobile': require('components/Settings/SettingsSectionsMobile.vue').default,
+		'settings-footer': require('components/Settings/SettingsFooter.vue').default,
+		'ask-a-question': require('components/Settings/AskAQuestion/AskAQuestion.vue').default,
 	}
 };
 </script>

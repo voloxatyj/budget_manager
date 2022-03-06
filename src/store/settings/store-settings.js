@@ -101,7 +101,7 @@ const state = reactive({
               value: '19px'
             },
             {
-              label: 'Extr Large',
+              label: 'Extra Large',
               value: '24px'
             }
           ]
@@ -226,6 +226,22 @@ const state = reactive({
     help: {
       label: 'Help',
       icon: 'fa-thin fa-handshake-angle',
+      fields: {
+        tutorial: {
+          type: 'field-item',
+          label: 'Tutorial',
+          click() {
+            console.log('"Tutuorial" was clicked');
+          }
+        },
+        askAQuestion: {
+          type: 'field-item',
+          label: 'Ask a Question',
+          click() {
+            store.help.state.showPaneAskAQuestion = true;
+          }
+        }
+      }
     },
     socials: {
       label: 'Socials',
