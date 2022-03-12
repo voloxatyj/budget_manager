@@ -1,0 +1,25 @@
+.feature-list {
+	&-item {
+		padding: 3px 16px !important;
+		min-height: auto !important;
+		@include iphone-5 {
+			padding: 3px 6px !important;
+		}
+		&-icon {
+			min-width: 0;
+		}
+		&-text {
+			line-height: 1;
+		}
+	}
+}
+
+.btn-link-list {
+	.btn-link:not(:first-child) {
+		&:before {
+			content: '*';
+			color: #89868B;
+			margin: 0 5px;
+		}
+	}
+}

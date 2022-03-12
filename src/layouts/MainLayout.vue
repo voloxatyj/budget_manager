@@ -54,6 +54,8 @@
         </keep-alive>
       </router-view>
     </q-page-container>
+
+    <qbudget-plus-popup />
   </q-layout>
 </template>
 
