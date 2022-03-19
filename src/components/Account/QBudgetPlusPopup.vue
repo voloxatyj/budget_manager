@@ -1,6 +1,6 @@
 <template>
 	<q-dialog
-		v-model="store?.account?.state?.showQBudgetPopup"
+		v-model="store.account.state.showQBudgetPopup"
 		class="popup qbudget-plus-popup"
 		transition-show="slide-up"
 		transition-hide="slide-down"
@@ -15,7 +15,7 @@
 
 				<div class="restrain-400">
 
-					<qbudget-plus-popup-sale v-if="!store?.account?.state?.subscribed" />
+					<qbudget-plus-popup-sale v-if="!store.account.state.subscribed" />
 
 					<qbudget-plus-popup-register v-else />
 

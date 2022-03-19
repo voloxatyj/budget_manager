@@ -30,7 +30,7 @@
 				</div>
 
 				<btn
-					@click="store?.account?.state?.loggedIn = true"
+					@click="store.account.state.loggedIn = true"
 					:disabled="!loginFormValid"
 					class="q-mb-lg"
 					label="Login"
@@ -44,7 +44,7 @@
 				</p>
 
 				<btn
-					@click="store?.account?.state?.showQBudgetPlusPopup=true"
+					@click="store.account.state.showQBudgetPlusPopup=true"
 					label="Learn about QBudget Plus"
 					color="secondary"
 					full-width

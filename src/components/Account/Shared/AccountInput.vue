@@ -21,8 +21,8 @@ export default {
 	},
 	setup(props) {
 		return {
-			placeholder: props?.placeholder,
-			type: props?.type
+			placeholder: props.placeholder,
+			type: props.type
 		}
 	},
 }

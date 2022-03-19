@@ -19,9 +19,9 @@ export default {
 	},
 	setup(props) {
 		return {
-			label: props?.label,
-			color: props?.color,
-			fullWidth: props?.fullWidth
+			label: props.label,
+			color: props.color,
+			fullWidth: props.fullWidth
 		}
 	},
 }

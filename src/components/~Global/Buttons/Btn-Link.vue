@@ -18,8 +18,8 @@ export default {
 	},
 	setup(props) {
 		return {
-			textSize: props?.textSize,
-			label: props?.label
+			textSize: props.textSize,
+			label: props.label
 		}		
 	},
 }

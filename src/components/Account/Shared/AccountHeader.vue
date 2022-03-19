@@ -20,8 +20,8 @@ export default {
 	},
 	setup(props) {
 		return {
-			label: props?.label,
-			subLabel: props?.subLabel
+			label: props.label,
+			subLabel: props.subLabel
 		}
 	},
 }

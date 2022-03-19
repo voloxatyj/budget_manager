@@ -22,7 +22,7 @@ export default {
 		const store = inject('store');
 
 		let accountPage = computed(() => {
-			store?.account?.state?.loggedIn ? 'account-your-account' : 'account-login';
+			store.account.state.loggedIn ? 'account-your-account' : 'account-login';
 		});
 
 		return {
