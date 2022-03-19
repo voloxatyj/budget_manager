@@ -2,7 +2,7 @@
 	<q-card
 		class="budget-list-item overflow-hidden"
 		v-touch-pan.mouse.prevent="moveItem"
-		:style="`transform: translateX(${itemOffset}px);transition: transform ${transitionDuration}s`"
+		:style="`transform: translateX(${itemOffset}px); transition: transform ${transitionDuration}s`"
 		@mouseup="handleTouchEnd"
 		@touchend="handleTouchEnd"
 	>
@@ -56,8 +56,53 @@
 import { inject, ref } from 'vue';
 
 export default {
-	setup() {
-		
+	props: ['budget'],
+	setup(props) {
+		const store = inject('store');
+
+		// handle swipe to reveal options
+		let itemOffSet = ref(0);
+		let transitionDuration = ref(0);
+		let offSetMin = -100;
+		let offSetMax = 0;
+		const moveItem = (e) => {
+			if (itemOffSet.value >= offSetMin && itemOffSet <= offSetMax) {
+				itemOffSet.value += e.delta.x;
+			}
+		};
+		const handleTouchEnd = (e) => {
+			console.log('handleTouchEnd');
+
+			// If it's moved too far, move it back to lower or upper limit
+			if (itemOffSet.value < offSetMin) itemOffSet.value = offSetMin;
+			else if (itemOffSet.value > offSetMax) itemOffSet.value = offSetMax;
+
+			// If it's moved near to either limit, finish movement
+			if (itemOffSet.value > offSetMin && itemOffSet.value < (offSetMin / 2)) {
+				setAndResetTransitionDuration();
+				itemOffSet.value = offSetMin;
+			}
+			else if (itemOffSet.value < offSetMax && itemOffSet.value > (offSetMin / 2)) {
+				setAndResetTransitionDuration();
+				itemOffSet.value = offSetMax;
+			}
+		};
+
+		const setAndResetTransitionDuration = () => {
+			transitionDuration.value = 0.3
+			setTimeout(() => {
+				transitionDuration.value = 0;
+			}, 300);
+		};
+
+		return {
+			store,
+			budget: props.budget,
+			itemOffSet,
+			transitionDuration,
+			moveItem,
+			handleTouchEnd
+		}
 	},
 }
 </script>
