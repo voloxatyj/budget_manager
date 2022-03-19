@@ -1,4 +1,4 @@
-import { reactive } from 'vue';
+import { reactive } from '@vue/reactivity';
 import { Screen } from 'quasar';
 import { i18n } from 'boot/i18n';
 import { moment } from 'moment';
