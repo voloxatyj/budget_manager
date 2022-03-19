@@ -72,9 +72,9 @@ export default {
       leftDrawer,
       navLinks: [
       {
-        title: 'Budgets',
+        title: 'Budget',
         icon: 'la la-walet',
-        link: '/budgets'
+        link: '/budget'
       },
       {
         title: 'Starred',

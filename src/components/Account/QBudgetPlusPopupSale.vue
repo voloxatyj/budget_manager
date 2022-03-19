@@ -84,7 +84,7 @@ export default {
 		let benefits = [
 			'Budget on your phone, tablet & computer - with live data sync',
 			'Budget together - share your Plus account with your partner',
-			'Unlimited Budgets & Folders',
+			'Unlimited Budget & Folders',
 			'Calculator, Export, Print & Sort',
 			'Notes, Reminders & Themes',
 			'Remove Ads'
@@ -106,7 +106,7 @@ export default {
 			});
 			setTimeout(() => {
 				$q.loading.hide();
-				store?.account?.state?.subscribed = true
+				store.account.state.subscribed = true
 			}, 2000);
 		};
 
