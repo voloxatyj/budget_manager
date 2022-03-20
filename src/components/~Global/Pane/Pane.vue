@@ -10,7 +10,6 @@
 
 <script>
 import { computed } from 'vue'
-import { TouchHold } from 'quasar'
 
 export default {
 	porps: ['left', 'right', 'full-width', 'nudge-left'],
@@ -56,14 +55,23 @@ export default {
 				paneFooter = paneRef.value.querySelector('.pane-footer'),
 				paneFooterSpacer = paneRef.value.querySelector('.pane-footer-spacer')
 			
-			// TODO Observer
-			const headerResizeObserver = new ResizeObserver(() => {})
+			const headerResizeObserver = new ResizeObserver(() => {
+				paneHeaderSpacer.style.height = `${paneHeader.offSetHeight}px`
+			})
+
+			const footerResizeObserver = new ResizeObserver(() => {
+				paneFooterSpacer.style.height = `${paneHeader.offSetHeight}px`
+			})
+
+			if (paneHeader) headerResizeObserver.observe(paneHeader)
+			if (paneFooter) footerResizeObserver.observe(paneFooter)
 		})
 
 		return {
 			panePostionClass,
 			nudgeLeftClass,
-			swipePaneRight
+			swipePaneRight,
+			paneRef
 		}
 	}
 }

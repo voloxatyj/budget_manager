@@ -1,6 +1,7 @@
 <template>
 	<pane
 		full-width
+		:nudge-left="store.settings.state.sectionActive"
 	>
 		<pane-header>
 			<template v-slot:title>{{ $t('Settings') }}</template>

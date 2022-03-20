@@ -2,13 +2,21 @@
 	<q-scroll-area 
 		@scroll="onScroll"
 		ref="scrollAreaRef"
-		class="pane-body fit bg-backdrop"
+		class="pane-body fit"
+		:class="`bg-${bgColor}`"
 	>
-		<div class="pane-header-spacer" style="height:50px"></div>
-		<div class="pane-body-content">
+		<div 
+			class="pane-header-spacer" 
+		/>
+		<div 
+			class="pane-body-content"
+			ref="paneBodyContentRef"
+		>
 			<slot />
 		</div>
-		<div class="pane-footer-spacer" style="height:65px"></div>
+		<div 
+			class="pane-footer-spacer"
+		/>
 	</q-scroll-area>
 </template>
 
@@ -16,7 +24,13 @@
 import { ref, onActivated } from 'vue';
 
 export default {
-	setup() {
+	props: {
+		bgColor: {
+			default: 'backdrop',
+			type: String
+		}
+	},
+	setup(props) {
 			// maintain scroll position when changing routes
 
 			const scrollAreaRef = ref(null);
@@ -33,7 +47,8 @@ export default {
 			return {
 				scrollAreaRef,
 				scrollPosition,
-				onScroll
+				onScroll,
+				bgColor: props.bgColor
 			};
 	},
 }
