@@ -1,21 +1,24 @@
 <template>
-	<q-card
-		class="budget-list-item overflow-hidden"
-		v-touch-pan.mouse.prevent="moveItem"
-		:style="`transform: translateX(${itemOffset}px); transition: transform ${transitionDuration}s`"
-		@mouseup="handleTouchEnd"
-		@touchend="handleTouchEnd"
-	>
+	<q-card>
+		<q-card-section>
+			
+		</q-card-section>
+	</q-card>
+	<div class="budget-list-item-container relative-position">
+		<q-card
+			class="budget-list-item overflow-hidden"
+			v-touch-swipe.mouse.left.prevent="swipeItemLeft"
+			v-touch-swipe.mouse.right.prevent="swipeItemRight"
+			:style="`transform: translateX(${itemOffset}px); transition: transform 0.3s, background-color 0.3s`"
+		>
 
-		<q-card-section horizontal>
-
-			<q-card-section class="q-pa-none-col">
+			<q-card-section horizontal>
 				<q-item
-					@click="store.entries.state.showEntries = true"
-					class="budget-list-item-main text-size-16 text-primary"
-					clickable
-					v-ripple
-					active
+				@click="store.entries.state.showEntries = true"
+				class="budget-list-item-main text-size-16 text-primary"
+				clickable
+				v-ripple
+				active
 				>
 					<q-item-section class="text-medium">
 						{{ budget.name }}
@@ -32,13 +35,12 @@
 						<q-icon color="primary" name="chevron_right" />
 					</q-item-section>
 				</q-item>
-			</q-card-section>
 
-			<q-separator vertical />
+				<q-separator vertical />
 
-			<q-card-section
-				class="budget-list-item-button q-pa-none col"
-			>
+				<q-card-section
+					class="budget-list-item-button q-pa-none col"
+				>
 				<q-btn
 					class="no-border-radius fit"
 					color="primary"
@@ -46,63 +48,91 @@
 				>
 					<q-icon name="las la-ellipsis-v" size="32px" />
 				</q-btn>
+				</q-card-section>
 			</q-card-section>
-		</q-card-section>
-	</q-card>
-	<!-- {{ itemOffset }} -->
+					
+		</q-card>
+		<div class="swipe-options absolute overflow-hidden">
+			
+			<btn-icon-list
+				class="absolute-right-center"
+				align="right"
+			>
+				<btn-icon
+					icon="las la-copy"
+					label="Copy"
+				/>
+				<btn-icon
+					icon="create_new_folder"
+					label="Move"
+				/>
+				<btn-icon
+					icon="las la-file-export"
+					label="Export"
+				/>
+				<btn-icon
+					icon="las la-trash-alt"
+					label="Delete"
+					coloe="negative"
+				/>
+			</btn-icon-list>	
+		</div>
+	</div>
 </template>
 
 <script>
-import { inject, ref } from 'vue';
+import { inject, ref } from 'vue'
 
 export default {
 	props: ['budget'],
 	setup(props) {
-		const store = inject('store');
+		const store = inject('store')
 
 		// handle swipe to reveal options
-		let itemOffSet = ref(0);
-		let transitionDuration = ref(0);
-		let offSetMin = -100;
-		let offSetMax = 0;
-		const moveItem = (e) => {
-			if (itemOffSet.value >= offSetMin && itemOffSet <= offSetMax) {
-				itemOffSet.value += e.delta.x;
-			}
-		};
-		const handleTouchEnd = (e) => {
-			console.log('handleTouchEnd');
+		let itemOffSet = ref(0)
+		let transitionDuration = ref(0)
+		let swipeOffSetMax = 0
 
-			// If it's moved too far, move it back to lower or upper limit
-			if (itemOffSet.value < offSetMin) itemOffSet.value = offSetMin;
-			else if (itemOffSet.value > offSetMax) itemOffSet.value = offSetMax;
-
-			// If it's moved near to either limit, finish movement
-			if (itemOffSet.value > offSetMin && itemOffSet.value < (offSetMin / 2)) {
-				setAndResetTransitionDuration();
-				itemOffSet.value = offSetMin;
+		const swipeItemLeft = (e) => {
+			if (e.distance.x >=5) {
+				moveOffSetMin()
 			}
-			else if (itemOffSet.value < offSetMax && itemOffSet.value > (offSetMin / 2)) {
-				setAndResetTransitionDuration();
-				itemOffSet.value = offSetMax;
-			}
-		};
+		}
 
-		const setAndResetTransitionDuration = () => {
-			transitionDuration.value = 0.3
-			setTimeout(() => {
-				transitionDuration.value = 0;
-			}, 300);
-		};
+		const swipeItemRight = (e) => {
+			moveOffSetMax()
+		}
+
+		const moveOffSetMin = () => {
+			itemOffSet.value = store.budget.state.swipeOffSetMin
+			store.budget.actions.disableDraggable()
+		}
+
+		const moveOffSetMax = () => {
+			itemOffSet.value = swipeOffSetMax
+			dragFix()
+
+			setTimeOut(() => {
+				store.budget.actions.enableDraggable()
+			}, 300)
+		}
+
+		const dragFix = () => {
+
+		}
 
 		return {
 			store,
 			budget: props.budget,
 			itemOffSet,
 			transitionDuration,
-			moveItem,
-			handleTouchEnd
+			swipeItemLeft,
+			swipeItemRight
 		}
 	},
+	components: {
+		'btn-icon': require('components/~Global/Buttons/BtnIcon.vue').default,
+		'btn-icon-list': require('components/~Global/Buttons/BtnIconList.vue').default
+	}
 }
 </script>

@@ -14,7 +14,7 @@
 			<div class="q-pa-md">
 				
 				<budget-list
-					v-if="store.Budget.state.Budget.length"
+					v-if="store.budget.state.budget.length"
 				/>
 
 				<nothing-here
@@ -28,7 +28,7 @@
 		<pane-footer>
 			<div class="q-ma-sm">
 				<btn
-					@click="store.Budget.state.showAddBudgetDialog = true"
+					@click="store.budget.state.showAddBudgetDialog = true"
 					label="Add Budget"
 					color="secondary"
 					full-width
