@@ -1,5 +1,6 @@
 import { reactive } from '@vue/reactivity'
 import { uid } from 'quasar'
+import { useDialogConfirm } from 'src/use/useDialogConfirm'
 
 const state = reactive({
 	budget: [
@@ -36,6 +37,22 @@ const actions = {
 		newBudget.id = uid()
 		state.budget.push(newBudget)
 		state.showAddBudgetDialog = false
+	},
+	deleteBudget(budget) {
+		useDialogConfirm({
+			title: `${t('Delete Budget')}`,
+			message: `${t('Are you sure you want to delete the budget?')} <b>${budget.name}</b> ?`,
+			ok: {
+				label: 'Delete',
+				color: 'negative'
+			},
+		}).onOk(() => {
+			setTimeout(() => {
+				state.budget = state.budget.filter((item) => {
+					return item.id !== budget.id
+				}, 50)
+			})
+		})
 	},
 	disableDraggable() {
 		state.draggable.options.disabled = true
