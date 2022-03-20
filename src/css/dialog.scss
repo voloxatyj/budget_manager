@@ -1,0 +1,36 @@
+.app-dialog {
+	.q-card {
+		@include desktop {
+			min-width: 350px;
+		}
+	}
+}
+
+.app-dialog-input {
+	&.q-field--filled.q-field--hightlighted .q-field__control:before {
+		background: white;
+	}
+}
+
+.app-dialog-select, .app-dialog-radio {
+	&.indented {
+		margin-left: 28px;
+	}
+	&:before {
+		content: '';
+		width: 12px;
+		height: 23px;
+		border-left: 1px dashed #CFCED0;
+		border-bottom: 1px dashed #CFCED0;
+		position: absolute;
+		left: -19px;
+	}
+}
+
+.app-dialog-radio {
+	&.indented {
+		&:before {
+			height: 13px;
+		}
+	}
+}
