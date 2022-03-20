@@ -15,7 +15,35 @@ const state = reactive({
 			currencySymbol: '$'
 		}
 	],
+	renderBudgetList: true,
 	showAddBudgetDialog: false,
+	drawer: {
+		show: false,
+		label: 'Budget Menu',
+		fields: {
+			selectMultipleItems: {
+				type: 'pane-drawer-field-item',
+				label: 'Select Multiple Items',
+				icon: 'las la-check-circle',
+				click() {
+					console.log('"Select Multiple Items" clicked!')
+				}
+			},
+			addFolder: {
+				type: 'pane-drawer-field-item',
+				label: 'Add Folder',
+				icon: 'folder',
+				click() {
+					console.log('"Add Folder" clicked!')
+				}
+			},
+			separator: { type: 'pane-drawer-field-separator' },
+			showAllBudgetBalance: {
+				type: 'pane-drawer-field-checkbox',
+				proxyTo: 'budgetOptions.fields.showAllBudgetBalance'
+			}
+		}
+	},
 	swipeOffSetMin: -205,
 	draggable: {
 		options: {

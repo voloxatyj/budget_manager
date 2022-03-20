@@ -194,6 +194,39 @@ const state = reactive({
             'month', `${moment().subtract(moment(moment().format("YYYY-MM"), "YYYY-MM").daysInMonth(), 'days')}`
           ]
           ])
+        },
+        increaseStarredDatesBy: {
+          type: 'field-radio',
+          label: 'Increase Starred dates by',
+          description: 'When you create a new budget & add your Starred items, the dates will be increased by this much',
+          value: 'oneMonth' ,
+          options: [
+            {
+              label: '1 month',
+              value: 'oneMonth'
+            },
+            {
+              label: '2 weeks',
+              value: 'twoWeeks'
+            },
+            {
+              label: '1 week',
+              value: 'oneWeek'
+            }
+          ],
+          change(value) {
+            console.log('"Increase Starred dates by" changed to:', value)
+          }
+        },
+        showRunningBalance: {},
+        showDateColumn: {},
+        showAllBudgetBalance: {
+          type: 'field-checkbox',
+          label: 'Show All Budget balance',
+          value: true,
+          change(value) {
+            console.log('"Show All Budget balance" set to:, value')
+          }
         }
       }
     },

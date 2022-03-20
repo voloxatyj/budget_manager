@@ -44,12 +44,6 @@
 import { inject } from 'vue';
 
 export default {
-  components: {
-		'budget-list': require('components/Budget/BudgetList').default, 
-		'pane-header-btn': require('components/~Global/Pane/PaneHeaderButton').default,
-		'btn': require('components/~Global/Buttons/Btn.vue').default,
-		'dialog-add-budget': require('components/Budget/DialogAddBudget').default
-	},
 	name: 'Budget',
 	setup () {
 		const store = inject('store');
@@ -57,6 +51,12 @@ export default {
 		return {
 			store
 		}
+	},
+	components: {
+		'budget-list': require('components/Budget/BudgetList').default, 
+		'pane-header-btn': require('components/~Global/Pane/PaneHeaderButton').default,
+		'btn': require('components/~Global/Buttons/Btn.vue').default,
+		'dialog-add-budget': require('components/Budget/DialogAddBudget').default
 	}
 }
 </script>
