@@ -93,6 +93,18 @@ export default {
       }
       ]
     }
-  }
+  },
+  watch: {
+    theme: (newTheme) => {
+      if (newTheme) {
+        document.body.setAttribute('data-theme', newTheme)
+      }
+    },
+    textSize: (newTextSize) => {
+      document.body.setAttribute('data-text-size', newTextSize)
+    }
+  },
+  // TODO initial theme that set in app
+  created() {}
 }
 </script>
