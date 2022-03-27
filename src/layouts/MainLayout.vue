@@ -102,6 +102,9 @@ export default {
     },
     textSize: (newTextSize) => {
       document.body.setAttribute('data-text-size', newTextSize)
+    },
+    textFont: (newTextFont) => {
+      document.body.setAttribute('data-text-font', newTextFont)
     }
   },
   // TODO initial theme that set in app
