@@ -1,0 +1,12 @@
+$text-font-options: (
+	'palette': 'Palette Mosaic',
+	'hurricane': 'Hurricane',
+	'smokum': 'Smokum',
+	'ubuntu': 'Ubuntu'
+);
+
+@each $font, $font-option in $text-font-options {
+	[data-text-font="#{$font-option}"] {
+		font-family: #{$font-option}, 'Roboto', 'Helvetica Neue', Arial, Helvetica, sans-serif;
+	}
+}
