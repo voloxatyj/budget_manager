@@ -2,9 +2,9 @@
 	&-item {
 		padding: 3px 16px !important;
 		min-height: auto !important;
-		@include iphone-5 {
-			padding: 3px 6px !important;
-		}
+		// @include iphone-5 {
+		// 	padding: 3px 6px !important;
+		// }
 		&-icon {
 			min-width: 0;
 		}

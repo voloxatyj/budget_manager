@@ -1,7 +1,7 @@
-@use "./variables";
 @use "sass:map";
+@import './variables';
 
-$theme: (
+$themes: (
 	'blue': (
 		primary: $blue,
 		secondary: $orange,
