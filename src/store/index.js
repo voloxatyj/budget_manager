@@ -1,8 +1,8 @@
-import account from './account';
-import budget from './budget';
-import entries from './entries';
-import help from './help';
-import settings from './settings';
+import * as account from './account';
+import * as budget from './budget';
+import * as entries from './entries';
+import * as help from './help';
+import * as settings from './settings';
 
 const store = {
 	account,
