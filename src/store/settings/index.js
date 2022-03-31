@@ -1,7 +1,7 @@
 import { reactive } from '@vue/reactivity';
 import { Screen } from 'quasar';
 import { i18n } from 'boot/i18n';
-import { moment } from 'moment';
+import { date } from 'quasar';
 
 const state = reactive({
   sections: {
@@ -116,8 +116,8 @@ const state = reactive({
           type: 'field-select',
           label: 'Date format:',
           value: {
-            label: `${moment(new Date()).format("D/MMM/YYYY")}`,
-            value: `${moment(new Date()).format("D/MMM/YYYY")}`
+            label: date.formatDate(Date.now(), "D/MMM/YYYY"),
+            value: date.formatDate(Date.now(), "D/MMM/YYYY")
           }
         },
         autoInsertDate: {
@@ -148,7 +148,7 @@ const state = reactive({
             }
           ],
           change(value) {
-            console.log('Currency symbol changed to:', value.value);
+            console.log('Currency symbol changed to:', value);
           }
         }
       }
@@ -182,16 +182,16 @@ const state = reactive({
         },
         startedFrom: {
           type: 'field-radio',
-          value: moment().format("DD/MM/YYYY"),
+          value: date.formatDate(Date.now(), "DD/MM/YYYY"),
           options: new Map([
           [
-            '1 week', `${moment().subtract(7, 'days')}`
+            '1 week', date.subtractFromDate(date.formatDate(Date.now(), "DD/MM/YYYY"), { days: 7 })
           ],
           [
-            '2 weeks', `${moment().subtract(14, 'days')}`
+            '2 weeks', date.subtractFromDate(date.formatDate(Date.now(), "DD/MM/YYYY"), { days: 14 })
           ],
           [
-            'month', `${moment().subtract(moment(moment().format("YYYY-MM"), "YYYY-MM").daysInMonth(), 'days')}`
+            'month', date.subtractFromDate(date.formatDate(Date.now(), "DD/MM/YYYY"), { months: 1 })
           ]
           ])
         },
@@ -225,7 +225,7 @@ const state = reactive({
           label: 'Show All Budget balance',
           value: true,
           change(value) {
-            console.log('"Show All Budget balance" set to:, value')
+            console.log('"Show All Budget balance" set to:', value)
           }
         }
       }
