@@ -21,7 +21,8 @@ module.exports = configure(function (ctx) {
     // https://quasar.dev/quasar-cli/boot-files
     boot: [
       'i18n',
-      'axios'
+      'axios',
+      'apollo'
     ],
 
     // https://quasar.dev/quasar-cli/quasar-conf-js#Property%3A-css
@@ -46,6 +47,11 @@ module.exports = configure(function (ctx) {
     // Full list of options: https://quasar.dev/quasar-cli/quasar-conf-js#Property%3A-build
     build: {
       vueRouterMode: 'hash', // available values: 'hash', 'history'
+      env: {
+        GRAPHQL_URI: ctx.dev
+          ? 'http://localhost:4000/graphql'
+          : 'https://prod.api.com'
+      }
 
       // transpile: false,
       // publicPath: '/',
