@@ -51,7 +51,7 @@ module.exports = configure(function (ctx) {
         GRAPHQL_URI: ctx.dev
           ? 'http://localhost:4000/graphql'
           : 'https://prod.api.com'
-      }
+      },
 
       // transpile: false,
       // publicPath: '/',
@@ -143,9 +143,9 @@ module.exports = configure(function (ctx) {
       },
 
       manifest: {
-        name: `Quasar App`,
-        short_name: `Quasar App`,
-        description: `A Quasar Framework app`,
+        name: `Qbudget`,
+        short_name: `Qbudget App`,
+        description: `A Quasar Framework app for count your spents`,
         display: 'standalone',
         orientation: 'portrait',
         background_color: '#ffffff',

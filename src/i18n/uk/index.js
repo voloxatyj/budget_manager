@@ -3,5 +3,9 @@
 
 export default {
   failed: 'Жуй Сраку!',
-  success: 'Непогано опиздрику!'
+  success: 'Непогано опиздрику!',
+  Budget: 'Кошторис',
+  Starred: 'Закладка',
+  Settings: 'Настрійки',
+  Account: 'Персона'
 }
