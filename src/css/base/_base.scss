@@ -1,0 +1,22 @@
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+@each $key, $direct in $directives {
+	@each $space in $spaceamounts {
+		.m#{$key}-#{$space} {
+			margin-#{$direct}: #{$space}rem;
+		}
+		.p#{$key}-#{$space} {
+			padding-#{$direct}: #{$space}rem;
+		}
+		.m-#{$space} {
+			margin: #{$space}rem;
+		}
+		.p-#{$space} {
+			padding: #{$space}rem;
+		}
+	}
+}

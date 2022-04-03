@@ -1,0 +1,27 @@
+@use "sass:map";
+@import '../abstracts/variables';
+
+%btn {
+	display: inline-block;
+	border-radius: 5px;
+	padding: 8px 20px;
+	margin: 3px;
+
+	&:hover {
+		transform: scale(.98);
+	}
+}
+
+
+@each $theme in $themes {
+	[data-theme='#{$theme}'] {
+		.btn-primary {
+			@extend %btn;
+			background-color: map.get($colors-of-themes, primary-#{$theme});
+		}
+		.btn-secondary {
+			@extend %btn;
+			background-color: map.get($colors-of-themes, secondary-#{$theme});
+		}
+	}
+}

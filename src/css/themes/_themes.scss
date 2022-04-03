@@ -1,0 +1,18 @@
+@use "sass:map";
+@import '../abstracts/variables';
+
+@each $themes-colors, $colors in $themes-color-palette {
+	[data-theme='#{$themes-colors}'] {
+		@each $name, $color in $colors {
+			.bg-#{$name} {
+				background: $color !important;
+			}
+			.text-#{$name} {
+				color: $color !important;
+			}
+		}
+		.q-field__control, q-item--active {
+			color: map.get($colors, primary) !important;
+		}
+	}
+};

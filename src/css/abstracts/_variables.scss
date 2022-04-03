@@ -1,0 +1,112 @@
+$indigo: #3f51b5;
+$purple: #5c6bc0;
+$blue:   #448aff;
+$yellow: #ff0;
+$green:  #76ff03;
+$orange: #ff6e40;
+
+$positive:#21BA45;
+$negative:#C10015;
+$dark:    #413D45;
+$medium:  #89868B;
+$light:   #CFCED0;
+$backdrop:#FFF8F1;
+$info:    #31CCEC;
+$warning: #F2C037;
+$danger:  #dc3545;
+
+$text-sizes: 12, 16, 21, 24;
+
+$text-size-options: (
+	"sm": 0.8,
+	"md": 1,
+	"lg": 1.2,
+	"xl": 1.4
+);
+
+$colors-of-themes: (
+	"primary-blue theme": $blue,
+	"secondary-blue theme": $orange,
+	"primary-yellow theme": $yellow,
+	"secondary-yellow theme": $indigo,
+	"primary-green theme": $green,
+	"secondary-green theme": $purple,
+	"primary-orange theme": $orange,
+	"secondary-orange theme": $blue
+);
+
+$themes: ("blue theme","yellow theme","green theme","orange theme");
+
+$text-font-options: (
+	"palette": "Palette Mosaic",
+	"hurricane": "Hurricane",
+	"smokum": "Smokum",
+	"ubuntu": "Ubuntu"
+);
+
+$themes-color-palette: (
+	"blue theme": (
+		primary: $blue,
+		secondary: $orange,
+		positive: $positive,
+		negative: $negative,
+		dark: $dark,
+		medium: $medium,
+		light: $light,
+		backdrop: $backdrop,
+		info: $info,
+		warning: $warning,
+		border-color: $orange
+	),
+	"yellow theme": (
+		primary: $yellow,
+		secondary: $indigo,
+		positive: $positive,
+		negative: $negative,
+		dark: $dark,
+		medium: $medium,
+		light: $light,
+		backdrop: $backdrop,
+		info: $info,
+		warning: $warning,
+		border-color: $indigo
+	),
+	"green theme": (
+		primary: $green,
+		secondary: $purple,
+		positive: $positive,
+		negative: $negative,
+		dark: $dark,
+		medium: $medium,
+		light: $light,
+		backdrop: $backdrop,
+		info: $info,
+		warning: $warning,
+		border-color: $purple
+	),
+	"orange theme": (
+		primary: $orange,
+		secondary: $blue,
+		positive: $positive,
+		negative: $negative,
+		dark: $dark,
+		medium: $medium,
+		light: $light,
+		backdrop: $backdrop,
+		info: $info,
+		warning: $warning,
+		border-color: $blue
+	)
+);
+
+$spaceamounts: (1,2,3,4,5,6,7,8,9,10);
+
+$directives: (
+	"t": "top",
+	"r": "right",
+	"l": "left",
+	"b": "bottom"
+);
+
+$border-radius:0.25rem !default;
+$box-shadow:0 0.5rem 1rem rgba($dark, 0.15) !default;
